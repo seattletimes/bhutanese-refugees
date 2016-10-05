@@ -5,8 +5,6 @@
 require("component-responsive-frame/child");
 var Reveal = require("./reveal");
 
-window.addEventListener("wheel", function(e) {
-  var scrollingDown = e.wheelDeltaY < 0;
-})
-
-Reveal.initialize();
+Reveal.initialize({
+  mouseWheel: true
+});
