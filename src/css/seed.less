@@ -2,6 +2,49 @@
 @import (inline) "reveal.css";
 @import (inline) "simple.css";
 
-.navigate-up, .navigate-down {
+.logo {
+  position: absolute;
+  z-index: 9;
+  top: 15px;
+  left: 15px;
+
+  img {
+    height: 24px;
+  }
+}
+
+.navigate-left, .navigate-right {
   display: none;
+}
+
+.left-rail {
+  max-width: 300px;
+  float: left;
+}
+.right-rail {
+  float: right;
+  max-width: 600px;
+}
+
+.hed, .subhed {
+  color: white;
+  font-family: @df-serif !important;
+  font-weight: bold !important;
+}
+.hed {
+  font-size: 90px !important;
+}
+.subhed {
+  font-size: 26px !important;
+}
+
+.text-box {
+  text-align: left;
+  font-family: @df-serif !important;
+  font-size: 20px !important;
+
+  &.boxed {
+    padding: 30px !important;
+    background: rgba(255,255,255,0.4);
+  }
 }
