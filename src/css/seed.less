@@ -7,9 +7,23 @@
   z-index: 9;
   top: 15px;
   left: 15px;
+  transition: opacity .3s linear;
 
   img {
     height: 24px;
+  }
+
+  &.black {
+    opacity: 0;
+  }
+}
+
+.black-logo {
+  .white {
+    opacity: 0;
+  }
+  .black {
+    opacity: 1;
   }
 }
 
