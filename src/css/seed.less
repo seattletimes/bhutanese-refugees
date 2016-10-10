@@ -2,6 +2,10 @@
 @import (inline) "reveal.css";
 @import (inline) "simple.css";
 
+section.top-aligned {
+  top: 20px !important;
+}
+
 .logo {
   position: absolute;
   z-index: 9;
@@ -59,11 +63,11 @@
 
 .caption {
   font-family: @df-sans !important;
-  font-size: 17px !important;
+  font-size: 15px !important;
   border-top: 2px solid #FF8500 !important;
   padding-top: 20px !important;
   margin-top: 40px !important;
-  line-height: 1.4em !important;
+  line-height: 1.5em !important;
   text-align: left !important;
 
   @media @mobile {
@@ -178,6 +182,12 @@
         max-width: 600px;
       }
     }
+  }
+
+  &.right-aligned {
+    float: right;
+    right: 20px !important;
+    left: auto !important;
   }
 
   @media @mobile {
