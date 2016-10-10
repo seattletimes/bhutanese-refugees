@@ -11,6 +11,10 @@
 
   img {
     height: 24px;
+
+    @media @break {
+      height: 16px;
+    }
   }
 
   &.black {
@@ -27,9 +31,27 @@
   }
 }
 
+.mobile-view {
+  display: none;
+
+  @media @mobile {
+    display: block;
+  }
+}
+
+.no-mobile-view {
+  @media @mobile {
+    display: none !important;
+  }
+}
+
 .byline {
   font-size: 18px !important;
   font-weight: bold !important;
+
+  @media @mobile {
+    font-size: 50px !important;
+  }
 }
 .end-credit {
   font-size: 16px !important;
@@ -43,6 +65,11 @@
   margin-top: 40px !important;
   line-height: 1.4em !important;
   text-align: left !important;
+
+  @media @mobile {
+    font-size: 45px !important;
+    padding-top: 30px !important;
+  }
 }
 
 .navigate-left, .navigate-right {
@@ -53,7 +80,7 @@
   max-width: 300px;
   float: left;
 
-  @media @break {
+  @media @mobile {
     max-width: 100%;
     float: none;
   }
@@ -62,8 +89,9 @@
   float: right;
   max-width: 600px;
 
-  @media @break {
+  @media @mobile {
     max-width: 100%;
+    float: none;
   }
 }
 
@@ -86,14 +114,14 @@
 .hed {
   font-size: 90px !important;
 
-  @media @break {
+  @media @mobile {
     font-size: 400% !important;
   }
 }
 .subhed {
   font-size: 26px !important;
 
-  @media @break {
+  @media @mobile {
     font-size: 150% !important;
   }
 }
@@ -108,6 +136,10 @@
     padding: 30px !important;
     background: rgba(0,0,0,0.7);
 
+    @media @mobile {
+      padding: 60px !important;
+    }
+
     .caption {
       margin-top: 10px !important;
 
@@ -119,7 +151,12 @@
 
   &.absolute {
     position: absolute;
-    top: 0;
+    top: 20px;
+    left: 20px;
+
+    &.top-align {
+      top: 0px;
+    }
   }
 
   &.two-thirds {
@@ -143,19 +180,40 @@
     }
   }
 
-  @media @break {
+  @media @mobile {
     font-size: 150% !important;
+  }
+}
+
+.aspect-outer {
+  .aspect-inner {
+    padding-bottom: percentage(9 / 16);
+    height: 0;
+    position: relative;
+
+    iframe {
+      border: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
   }
 }
 
 .flex-container {
   .display-flex();
+
   div {
     .flex(1);
 
     &.flex-two {
       .flex(2);
     }
+  }
+  .buffer {
+    .flex(0 0 10px);
   }
 }
 .full-flex-container {
@@ -165,4 +223,24 @@
   .full-img {
     .flex(1);
   }
+}
+
+.final-credits {
+  line-height: 1.5em !important;
+  letter-spacing: 0.03em;
+  color: white;
+  font-size: 16px !important;
+
+  .role {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+.circle-logo {
+  height: 150px !important;
+  margin-bottom: 15px !important;
+}
+.final-logo {
+  height: 40px !important;
+  margin-top: 30px !important;
 }
