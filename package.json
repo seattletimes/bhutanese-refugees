@@ -8,7 +8,7 @@
     "url": "https://github.com/seattletimes/bhutanese-refugees.git"
   },
   "dependencies": {
-    "async": "^2.0.0-rc.1",
+    "async": "^2.0.1",
     "aws-sdk": "^2.2.45",
     "babelify": "^6.0.2",
     "browserify": "^13.0.0",
@@ -16,6 +16,7 @@
     "commonmark": "^0.24.0",
     "component-responsive-frame": "^1.0.6",
     "csv": "^0.4.2",
+    "es6-promise": "^4.0.5",
     "exorcist": "^0.4.0",
     "google-spreadsheets": "^0.5.1",
     "grunt": "^1.0.0",
