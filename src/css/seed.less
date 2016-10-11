@@ -53,17 +53,17 @@ section.top-aligned {
   font-size: 18px !important;
   font-weight: bold !important;
 
-  @media @mobile {
-    font-size: 50px !important;
+  @media @break {
+    font-size: 25px !important;
   }
 }
 .end-credit {
-  font-size: 16px !important;
+  font-size: 18px !important;
 }
 
 .caption {
   font-family: @df-sans !important;
-  font-size: 15px !important;
+  font-size: 16px !important;
   border-top: 2px solid #FF8500 !important;
   padding-top: 20px !important;
   margin-top: 40px !important;
@@ -135,13 +135,31 @@ section.top-aligned {
   font-family: @df-serif !important;
   font-size: 20px !important;
 
+  &.narrow {
+    max-width: 600px;
+    margin: auto;
+    color: white;
+
+    .divider {
+      width: 50%;
+      border-top: 2px solid #FF8500;
+      margin-top: 20px;
+    }
+
+    @media @break {
+      max-width: 100%;
+      font-size: 36px !important;
+    }
+  }
+
   &.boxed {
     color: @df-light-gray;
     padding: 30px !important;
     background: rgba(0,0,0,0.7);
 
-    @media @mobile {
-      padding: 60px !important;
+    @media @break {
+      font-size: 28px !important;
+      max-width: 100%;
     }
 
     .caption {
@@ -149,6 +167,10 @@ section.top-aligned {
 
       &.padded {
         margin-top: 35px !important;
+      }
+
+      @media @break {
+        font-size: 30px !important;
       }
     }
   }
@@ -160,6 +182,20 @@ section.top-aligned {
 
     &.top-align {
       top: 0px;
+    }
+
+    #garden-triplet {
+      top: -16px;
+
+      @media @break {
+        top: 18%;
+      }
+    }
+
+    @media @break {
+      top: 18%;
+      left: 20px;
+      right: 20px;
     }
   }
 
@@ -188,6 +224,10 @@ section.top-aligned {
     float: right;
     right: 20px !important;
     left: auto !important;
+
+    @media @break {
+      left: 20px !important;
+    }
   }
 
   @media @mobile {

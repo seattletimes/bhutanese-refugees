@@ -10,8 +10,8 @@ var ready = require("./brightcove");
 Reveal.initialize({
   width: 1020,
   mouseWheel: true,
-  slideNumber: true,
-  history: true
+  slideNumber: false,
+  history: false
 });
 
 var whitelisted = {
@@ -50,7 +50,7 @@ async.mapValues(players, function(val, key, callback) {
     if (event.indexv in players) {
       players[event.indexv].play();
     } else {
-      players[event.indexv].stop();
+      players[event.indexv].pause();
     }
   });
 })
