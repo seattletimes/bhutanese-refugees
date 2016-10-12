@@ -11,7 +11,7 @@ Reveal.initialize({
   width: 1020,
   mouseWheel: true,
   slideNumber: false,
-  history: false
+  history: true
 });
 
 var whitelisted = {
@@ -44,21 +44,17 @@ var players = {
 }
 
 async.mapValues(players, function(val, key, callback) {
-  ready("Nk8AFQkhe", val, p => callback(null, p));
+  ready("B15NOtCZ", val, p => callback(null, p));
 }, function(err, players) {
   //called when all players are initialized
   console.log(players)
   Reveal.addEventListener("slidechanged", function(event) {
-    if (event.indexv in players) {
-      players[event.indexv].play();
-    } else {
-      players[event.indexv].pause();
+    for (var i in players) {
+      if (event.indexv == i) {
+        players[i].play();
+      } else {
+        players[i].pause();
+      }
     }
   });
 })
-
-ready("Nk8AFQkhe", "player-1", function(p) {
-  // p.on("ended", function() {
-  //   animateScroll("#words");
-  // })
-});

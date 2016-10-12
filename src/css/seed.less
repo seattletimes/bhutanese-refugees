@@ -68,6 +68,10 @@ section.move-up {
   }
 }
 
+.fa-camera {
+  padding-right: 4px;
+}
+
 .byline {
   font-size: 18px !important;
   font-weight: bold !important;
@@ -80,10 +84,14 @@ section.move-up {
   }
 }
 .end-credit {
+  color: white;
   font-size: 18px !important;
 
   @media @break {
     font-size: 28px !important;
+  }
+  @media @mobile {
+    font-size: 40px !important;
   }
 }
 
@@ -233,7 +241,7 @@ section.move-up {
     }
 
     &#garden-triplet {
-      top: -16px;
+      top: -3%;
 
       @media @break {
         top: 6px;
@@ -338,6 +346,10 @@ section.move-up {
     font-size: 28px !important;
   }
 
+  @media @mobile {
+    font-size: 36px !important;
+  }
+
   .role {
     text-transform: uppercase;
     font-weight: bold;
@@ -354,4 +366,8 @@ section.move-up {
   @media @break {
     height: 60px !important;
   }
+}
+
+#header-bar {
+  display: none;
 }
