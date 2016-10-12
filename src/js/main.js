@@ -60,7 +60,7 @@ async.mapValues(players, function(val, key, callback) {
 
 ready("Nk8AFQkhe", "player-ad", function(player) {
   Reveal.addEventListener("slidechanged", function(event) {
-    if (event.indexv == 20) {
+    if (event.indexv == 16) {
       player.play();
     } else {
       player.pause();
