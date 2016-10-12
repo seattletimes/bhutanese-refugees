@@ -16,7 +16,6 @@ Reveal.initialize({
 
 var whitelisted = {
   3: true,
-  7: true,
   8: true,
   9: true,
   11: true,
@@ -58,3 +57,13 @@ async.mapValues(players, function(val, key, callback) {
     }
   });
 })
+
+ready("Nk8AFQkhe", "player-ad", function(player) {
+  Reveal.addEventListener("slidechanged", function(event) {
+    if (event.indexv == 20) {
+      player.play();
+    } else {
+      player.pause();
+    }
+  });
+});

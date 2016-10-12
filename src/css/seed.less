@@ -71,6 +71,10 @@ section.move-up {
 .fa-camera {
   padding-right: 4px;
 }
+.fa-envelope, .fa-twitter {
+  padding-left: 4px;
+  color: white;
+}
 
 .byline {
   font-size: 18px !important;
@@ -240,17 +244,6 @@ section.move-up {
       top: 0px;
     }
 
-    &#garden-triplet {
-      top: -3%;
-
-      @media @break {
-        top: 6px;
-      }
-      @media @mobile {
-        top: -37%;
-      }
-    }
-
     @media @break {
       top: 18%;
       left: 20px;
@@ -361,10 +354,27 @@ section.move-up {
 }
 .final-logo {
   height: 40px !important;
-  margin-top: 30px !important;
+  margin-top: 15px !important;
 
   @media @break {
     height: 60px !important;
+  }
+}
+
+.about {
+  color: @df-border-gray;
+  letter-spacing: 0.02em !important;
+  font-size: 14px !important;
+  max-width: 600px;
+  margin: auto !important;
+  padding-top: 10px !important;
+
+  @media @break {
+    max-width: 100%;
+    font-size: 19px !important;
+  }
+  @media @mobile {
+    font-size: 36px !important;
   }
 }
 
