@@ -1,7 +1,7 @@
 require("./lib/social");
 var async = require("async");
 // require("./lib/ads");
-// var track = require("./lib/tracking");
+var track = require("./lib/tracking");
 
 require("component-responsive-frame/child");
 var Reveal = require("./reveal");
@@ -15,14 +15,15 @@ Reveal.initialize({
 });
 
 var whitelisted = {
-  2: true,
   3: true,
   7: true,
+  8: true,
   9: true,
-  12: true,
-  15: true,
-  17: true,
-  20: true
+  11: true,
+  14: true,
+  18: true,
+  21: true,
+  23: true
 }
 
 Reveal.addEventListener("slidechanged", function(event) {
@@ -31,6 +32,7 @@ Reveal.addEventListener("slidechanged", function(event) {
   } else {
     document.body.classList.remove("black-logo");
   }
+  track("interactive", "scroll", event.indexv);
 });
 
 // Load video player

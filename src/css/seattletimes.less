@@ -116,33 +116,32 @@ nav.main-nav {
       }
     }
   }
+}
 
-  .share.top {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.share.top {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 9;
 
-    @media @tablet {
-      right: 4px;
-      width: auto !important;
-    }
+  @media @tablet {
+    width: auto !important;
+  }
+
+  label {
+    background: rgba(255,255,255,0.5) !important;
+  }
+
+  @media @break {
 
     label {
-      background: white !important;
+      span {
+        display: none;
+      }
     }
 
-    @media @mobile {
-      top: 6px;
-
-      label {
-        span {
-          display: none;
-        }
-      }
-
-      .left {
-        margin-left: -275px !important;
-      }
+    .left {
+      margin-left: -275px !important;
     }
   }
 }

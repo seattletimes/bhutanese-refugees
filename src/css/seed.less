@@ -3,7 +3,26 @@
 @import (inline) "simple.css";
 
 section.top-aligned {
-  top: 20px !important;
+  top: 40px !important;
+
+  @media @break {
+    top: 70px !important;
+  }
+}
+
+section#final-text {
+  @media @break {
+    top: 40px !important;
+  }
+  @media @mobile {
+    top: -200px !important;
+  }
+}
+
+section.move-up {
+  @media @mobile {
+    top: -200px !important;
+  }
 }
 
 .logo {
@@ -54,11 +73,18 @@ section.top-aligned {
   font-weight: bold !important;
 
   @media @break {
-    font-size: 25px !important;
+    font-size: 28px !important;
+  }
+  @media @mobile {
+    font-size: 46px !important;
   }
 }
 .end-credit {
   font-size: 18px !important;
+
+  @media @break {
+    font-size: 28px !important;
+  }
 }
 
 .caption {
@@ -70,9 +96,10 @@ section.top-aligned {
   line-height: 1.5em !important;
   text-align: left !important;
 
-  @media @mobile {
-    font-size: 45px !important;
+  @media @break {
+    border-top: 4px solid #FF8500 !important;
     padding-top: 30px !important;
+    margin-top: 50px !important;
   }
 }
 
@@ -118,15 +145,21 @@ section.top-aligned {
 .hed {
   font-size: 90px !important;
 
+  @media @break {
+    font-size: 100px !important;
+  }
   @media @mobile {
-    font-size: 400% !important;
+    font-size: 150px !important;
   }
 }
 .subhed {
   font-size: 26px !important;
 
+  @media @break {
+    font-size: 30px !important;
+  }
   @media @mobile {
-    font-size: 150% !important;
+    font-size: 50px !important;
   }
 }
 
@@ -144,11 +177,19 @@ section.top-aligned {
       width: 50%;
       border-top: 2px solid #FF8500;
       margin-top: 20px;
+
+      @media @break {
+        border-top: 4px solid #FF8500;
+        margin-bottom: 40px;
+      }
     }
 
     @media @break {
       max-width: 100%;
       font-size: 36px !important;
+    }
+    @media @mobile {
+      font-size: 54px !important;
     }
   }
 
@@ -158,8 +199,12 @@ section.top-aligned {
     background: rgba(0,0,0,0.7);
 
     @media @break {
-      font-size: 28px !important;
+      font-size: 36px !important;
       max-width: 100%;
+    }
+
+    @media @mobile {
+      font-size: 54px !important;
     }
 
     .caption {
@@ -171,6 +216,9 @@ section.top-aligned {
 
       @media @break {
         font-size: 30px !important;
+      }
+      @media @mobile {
+        font-size: 45px !important;
       }
     }
   }
@@ -184,11 +232,14 @@ section.top-aligned {
       top: 0px;
     }
 
-    #garden-triplet {
+    &#garden-triplet {
       top: -16px;
 
       @media @break {
-        top: 18%;
+        top: 6px;
+      }
+      @media @mobile {
+        top: -37%;
       }
     }
 
@@ -196,6 +247,9 @@ section.top-aligned {
       top: 18%;
       left: 20px;
       right: 20px;
+    }
+    @media @mobile {
+      top: -15%;
     }
   }
 
@@ -280,6 +334,10 @@ section.top-aligned {
   color: white;
   font-size: 16px !important;
 
+  @media @break {
+    font-size: 28px !important;
+  }
+
   .role {
     text-transform: uppercase;
     font-weight: bold;
@@ -292,4 +350,8 @@ section.top-aligned {
 .final-logo {
   height: 40px !important;
   margin-top: 30px !important;
+
+  @media @break {
+    height: 60px !important;
+  }
 }
