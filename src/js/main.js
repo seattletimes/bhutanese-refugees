@@ -4,7 +4,7 @@ var async = require("async");
 var track = require("./lib/tracking");
 
 require("component-responsive-frame/child");
-var Reveal = require("./reveal");
+var Reveal = window.Reveal = require("./reveal");
 var ready = require("./brightcove");
 
 var closest = require("./lib/closest");
@@ -16,9 +16,12 @@ Reveal.initialize({
   history: true
 });
 
+
+var clickAdvance = true;
 var unclickable = ".share, button, a, .video-js"
 
 document.body.addEventListener("click", function(e) {
+  if (!clickAdvance) return;
   var isUnclickable = closest(e.target, unclickable);
   if (!isUnclickable) Reveal.down();
 });
@@ -71,27 +74,57 @@ async.mapValues(players, function(val, key, callback) {
   });
 })
 
+var freeze = function() {
+  var config = Reveal.getConfig();
+  config.touch = false;
+  config.keyboard = false;
+  config.controls = false;
+  Reveal.configure(config);
+  clickAdvance = false;
+
+  setTimeout(function() {
+    config.touch = true;
+    config.keyboard = true;
+    config.controls = true;
+    Reveal.configure(config);
+    clickAdvance = true;
+  }, 5000);
+};
+
 ready("Nk8AFQkhe", "ad-player-1", function(player) {
+  var hasBeenPlayed = false;
   Reveal.addEventListener("slidechanged", function(event) {
     if (event.indexv == 17) {
       player.play();
       player.ima3.adPlayer.play();
+      if (!hasBeenPlayed) freeze();
     } else {
       player.ima3.adPlayer.pause();
     }
   });
-  player.ima3.adPlayer.on("ads-ad-started", function() {
-    console.log("started")
+  player.on("ads-ad-started", function() {
+    hasBeenPlayed = true;
+  });
+  player.on("ads-ad-ended", function() {
+    Reveal.down();
   });
 });
 
 ready("Nk8AFQkhe", "ad-player-2", function(player) {
+  var hasBeenPlayed = false;
   Reveal.addEventListener("slidechanged", function(event) {
     if (event.indexv == 39) {
       player.play();
       player.ima3.adPlayer.play();
+      if (!hasBeenPlayed) freeze();
     } else {
       player.ima3.adPlayer.pause();
     }
+  });
+  player.on("ads-ad-started", function() {
+    hasBeenPlayed = true;
+  });
+  player.on("ads-ad-ended", function() {
+    Reveal.down();
   });
 });
