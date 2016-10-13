@@ -66,6 +66,20 @@ section.move-up {
   }
 }
 
+.break-view {
+  display: none;
+
+  @media @break {
+    display: block;
+  }
+}
+
+.no-break-view {
+  @media @break {
+    display: none !important;
+  }
+}
+
 .fa-envelope, .fa-twitter {
   padding-left: 4px;
   color: white;
@@ -275,12 +289,12 @@ section.move-up {
     }
 
     @media @break {
-      top: 18%;
+      // top: 18%;
       left: 20px;
       right: 20px;
     }
     @media @mobile {
-      top: -15%;
+      // top: -15%;
     }
 
     &.move-down {
