@@ -16,13 +16,14 @@ Reveal.initialize({
 
 var whitelisted = {
   3: true,
-  8: true,
+  7: true,
   9: true,
+  10: true,
   11: true,
   14: true,
-  18: true,
-  21: true,
-  23: true
+  20: true,
+  23: true,
+  25: true
 }
 
 Reveal.addEventListener("slidechanged", function(event) {
