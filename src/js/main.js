@@ -13,7 +13,8 @@ Reveal.initialize({
   width: 1020,
   mouseWheel: false,
   slideNumber: false,
-  history: true
+  history: true,
+  overview: false
 });
 
 
@@ -29,16 +30,16 @@ document.body.addEventListener("click", function(e) {
 var whitelisted = {
   3: true,
   4: true,
-  10: true,
-  12: true,
+  11: true,
   13: true,
   14: true,
   15: true,
   16: true,
-  21: true,
-  28: true,
-  32: true,
-  35: true
+  17: true,
+  22: true,
+  29: true,
+  33: true,
+  36: true
 }
 
 Reveal.addEventListener("slidechanged", function(event) {
@@ -52,10 +53,10 @@ Reveal.addEventListener("slidechanged", function(event) {
 
 // Load video player
 var players = {
-  9: "player-1",
-  18: "player-2",
-  24: "player-3",
-  40: "player-4"
+  10: "player-1",
+  19: "player-2",
+  25: "player-3",
+  41: "player-4"
 }
 
 async.mapValues(players, function(val, key, callback) {
@@ -106,7 +107,7 @@ var freeze = function(player) {
 ready("Nk8AFQkhe", "ad-player-1", function(player) {
   var hasBeenPlayed = false;
   Reveal.addEventListener("slidechanged", function(event) {
-    if (event.indexv == 17) {
+    if (event.indexv == 18) {
       player.play();
       player.ima3.adPlayer.play();
       if (!hasBeenPlayed) freeze("1");
@@ -125,7 +126,7 @@ ready("Nk8AFQkhe", "ad-player-1", function(player) {
 ready("Nk8AFQkhe", "ad-player-2", function(player) {
   var hasBeenPlayed = false;
   Reveal.addEventListener("slidechanged", function(event) {
-    if (event.indexv == 39) {
+    if (event.indexv == 40) {
       player.play();
       player.ima3.adPlayer.play();
       if (!hasBeenPlayed) freeze("2");
