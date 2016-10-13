@@ -38,8 +38,8 @@ Reveal.addEventListener("slidechanged", function(event) {
 var players = {
   6: "player-1",
   12: "player-2",
-  16: "player-3",
-  26: "player-4"
+  17: "player-3",
+  28: "player-4"
 }
 
 async.mapValues(players, function(val, key, callback) {
@@ -59,11 +59,17 @@ async.mapValues(players, function(val, key, callback) {
 })
 
 ready("Nk8AFQkhe", "player-ad", function(player) {
+  window.ad = player;
+  console.log("ready")
   Reveal.addEventListener("slidechanged", function(event) {
+    console.log("scrolled")
     if (event.indexv == 16) {
+      console.log("play ad")
       player.play();
+      player.ima3.adPlayer.play();
     } else {
-      player.pause();
+      console.log("stop ad")
+      player.ima3.adPlayer.pause();
     }
   });
 });
