@@ -62,7 +62,6 @@ async.mapValues(players, function(val, key, callback) {
   ready("B15NOtCZ", val, p => callback(null, p));
 }, function(err, players) {
   //called when all players are initialized
-  console.log(players)
   Reveal.addEventListener("slidechanged", function(event) {
     for (var i in players) {
       if (event.indexv == i) {
@@ -74,7 +73,7 @@ async.mapValues(players, function(val, key, callback) {
   });
 })
 
-var freeze = function() {
+var freeze = function(player) {
   var config = Reveal.getConfig();
   config.touch = false;
   config.keyboard = false;
@@ -82,13 +81,26 @@ var freeze = function() {
   Reveal.configure(config);
   clickAdvance = false;
 
+  var countdown = function() {
+    var num = document.querySelector(".skip-sec"+player).innerHTML;
+    document.querySelector(".skip-sec"+player).innerHTML = num - 1;
+
+    if (num > 1) {
+      setTimeout(countdown, 1000);
+    } else {
+      document.querySelector(".skip"+player).classList.add("hide");
+    }
+  };
+
+  countdown();
+
   setTimeout(function() {
     config.touch = true;
     config.keyboard = true;
     config.controls = true;
     Reveal.configure(config);
     clickAdvance = true;
-  }, 5000);
+  }, 10000);
 };
 
 ready("Nk8AFQkhe", "ad-player-1", function(player) {
@@ -97,7 +109,7 @@ ready("Nk8AFQkhe", "ad-player-1", function(player) {
     if (event.indexv == 17) {
       player.play();
       player.ima3.adPlayer.play();
-      if (!hasBeenPlayed) freeze();
+      if (!hasBeenPlayed) freeze("1");
     } else {
       player.ima3.adPlayer.pause();
     }
@@ -116,7 +128,7 @@ ready("Nk8AFQkhe", "ad-player-2", function(player) {
     if (event.indexv == 39) {
       player.play();
       player.ima3.adPlayer.play();
-      if (!hasBeenPlayed) freeze();
+      if (!hasBeenPlayed) freeze("2");
     } else {
       player.ima3.adPlayer.pause();
     }
