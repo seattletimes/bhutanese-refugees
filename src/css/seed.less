@@ -124,12 +124,30 @@ section.move-up {
   display: none;
 }
 
+.instructions {
+  margin-top: 20px !important;
+  font-family: @df-sans;
+  text-transform: uppercase;
+  font-size: 13px !important;
+  color: white;
+  // font-weight: bold !important;
+  letter-spacing: 0.04em !important;
+}
+
 .left-rail {
   max-width: 300px;
   float: left;
 
   &.title {
     max-width: 320px;
+  }
+
+  &.wide-quad {
+    max-width: 465px !important;
+
+    @media @break {
+      max-width: 100% !important;
+    }
   }
 
   @media @break {

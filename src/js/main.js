@@ -7,6 +7,8 @@ require("component-responsive-frame/child");
 var Reveal = require("./reveal");
 var ready = require("./brightcove");
 
+var closest = require("./lib/closest");
+
 Reveal.initialize({
   width: 1020,
   mouseWheel: false,
@@ -14,16 +16,26 @@ Reveal.initialize({
   history: true
 });
 
+var unclickable = ".share, button, a, .video-js"
+
+document.body.addEventListener("click", function(e) {
+  var isUnclickable = closest(e.target, unclickable);
+  if (!isUnclickable) Reveal.down();
+});
+
 var whitelisted = {
   3: true,
-  7: true,
-  9: true,
+  4: true,
   10: true,
-  11: true,
+  12: true,
+  13: true,
   14: true,
-  20: true,
-  23: true,
-  25: true
+  15: true,
+  16: true,
+  21: true,
+  28: true,
+  32: true,
+  35: true
 }
 
 Reveal.addEventListener("slidechanged", function(event) {
@@ -37,10 +49,10 @@ Reveal.addEventListener("slidechanged", function(event) {
 
 // Load video player
 var players = {
-  6: "player-1",
-  13: "player-2",
-  17: "player-3",
-  29: "player-4"
+  9: "player-1",
+  18: "player-2",
+  24: "player-3",
+  40: "player-4"
 }
 
 async.mapValues(players, function(val, key, callback) {
@@ -61,18 +73,21 @@ async.mapValues(players, function(val, key, callback) {
 
 ready("Nk8AFQkhe", "ad-player-1", function(player) {
   Reveal.addEventListener("slidechanged", function(event) {
-    if (event.indexv == 12) {
+    if (event.indexv == 17) {
       player.play();
       player.ima3.adPlayer.play();
     } else {
       player.ima3.adPlayer.pause();
     }
   });
+  player.ima3.adPlayer.on("ads-ad-started", function() {
+    console.log("started")
+  });
 });
 
 ready("Nk8AFQkhe", "ad-player-2", function(player) {
   Reveal.addEventListener("slidechanged", function(event) {
-    if (event.indexv == 28) {
+    if (event.indexv == 39) {
       player.play();
       player.ima3.adPlayer.play();
     } else {
