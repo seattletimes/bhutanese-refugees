@@ -9,7 +9,7 @@ var ready = require("./brightcove");
 
 Reveal.initialize({
   width: 1020,
-  mouseWheel: true,
+  mouseWheel: false,
   slideNumber: false,
   history: true
 });
@@ -38,9 +38,9 @@ Reveal.addEventListener("slidechanged", function(event) {
 // Load video player
 var players = {
   6: "player-1",
-  12: "player-2",
+  13: "player-2",
   17: "player-3",
-  28: "player-4"
+  29: "player-4"
 }
 
 async.mapValues(players, function(val, key, callback) {
@@ -59,17 +59,23 @@ async.mapValues(players, function(val, key, callback) {
   });
 })
 
-ready("Nk8AFQkhe", "player-ad", function(player) {
-  window.ad = player;
-  console.log("ready")
+ready("Nk8AFQkhe", "ad-player-1", function(player) {
   Reveal.addEventListener("slidechanged", function(event) {
-    console.log("scrolled")
-    if (event.indexv == 16) {
-      console.log("play ad")
+    if (event.indexv == 12) {
       player.play();
       player.ima3.adPlayer.play();
     } else {
-      console.log("stop ad")
+      player.ima3.adPlayer.pause();
+    }
+  });
+});
+
+ready("Nk8AFQkhe", "ad-player-2", function(player) {
+  Reveal.addEventListener("slidechanged", function(event) {
+    if (event.indexv == 28) {
+      player.play();
+      player.ima3.adPlayer.play();
+    } else {
       player.ima3.adPlayer.pause();
     }
   });
