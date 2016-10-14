@@ -198,6 +198,12 @@ section.move-up {
   }
 }
 
+.stacked-pictures {
+  .display-flex();
+  .flex-direction(column);
+  .justify-content(space-between);
+}
+
 .slide-background {
   background-position: top center !important;
 }
@@ -344,6 +350,10 @@ section.move-up {
   }
 }
 
+video {
+  display: block;
+}
+
 .aspect-outer {
   .aspect-inner {
     padding-bottom: percentage(9 / 16);
@@ -368,6 +378,14 @@ section.move-up {
 
     &.flex-two {
       .flex(2);
+    }
+
+    &.flex-two-five {
+      .flex(2.5);
+
+      video {
+        width: 100%;
+      }
     }
   }
   .buffer {

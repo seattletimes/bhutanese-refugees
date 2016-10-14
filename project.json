@@ -6,16 +6,16 @@
     },
     "live": {
       "bucket": "projects.seattletimes.com",
-      "path": ""
+      "path": "2016/bhutan-to-tukwila"
     }
   },
   "title": "30 Days: A refugee family's first month in the U.S.",
   "description": "Facing persecution in Bhutan, an extended Nepali-speaking family fled the country for a refugee camp in eastern Nepal. They were resettled in Tukwila starting in 2009, but four members weren’t able to leave the camp until August.",
-  "url": "http://projects-staging.seattletimes.com/mousy-house/",
+  "url": "http://projects.seattletimes.com/2016/bhutan-to-tukwila/",
   "slug": "",
   "tags": [],
   "image": "assets/social.jpg",
   "sheets": [],
-  "production": false,
-  "embedded": true
+  "production": true,
+  "embedded": false
 }

@@ -74,6 +74,13 @@ async.mapValues(players, function(val, key, callback) {
   });
 })
 
+// players.forEach(function(p) {
+//   p.on("ended", function() {
+//     console.log("hello")
+//     Reveal.down();
+//   });
+// })
+
 var freeze = function(player) {
   var config = Reveal.getConfig();
   config.touch = false;
@@ -101,7 +108,7 @@ var freeze = function(player) {
     config.controls = true;
     Reveal.configure(config);
     clickAdvance = true;
-  }, 10000);
+  }, 15000);
 };
 
 ready("Nk8AFQkhe", "ad-player-1", function(player) {
@@ -111,12 +118,10 @@ ready("Nk8AFQkhe", "ad-player-1", function(player) {
       player.play();
       player.ima3.adPlayer.play();
       if (!hasBeenPlayed) freeze("1");
+      hasBeenPlayed = true;
     } else {
       player.ima3.adPlayer.pause();
     }
-  });
-  player.on("ads-ad-started", function() {
-    hasBeenPlayed = true;
   });
   player.on("ads-ad-ended", function() {
     Reveal.down();
@@ -130,12 +135,10 @@ ready("Nk8AFQkhe", "ad-player-2", function(player) {
       player.play();
       player.ima3.adPlayer.play();
       if (!hasBeenPlayed) freeze("2");
+      hasBeenPlayed = true;
     } else {
       player.ima3.adPlayer.pause();
     }
-  });
-  player.on("ads-ad-started", function() {
-    hasBeenPlayed = true;
   });
   player.on("ads-ad-ended", function() {
     Reveal.down();
