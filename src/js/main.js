@@ -17,7 +17,6 @@ Reveal.initialize({
   overview: false
 });
 
-
 var clickAdvance = true;
 var unclickable = ".share, button, a, .video-js"
 
@@ -60,7 +59,13 @@ var players = {
 }
 
 async.mapValues(players, function(val, key, callback) {
-  ready("B15NOtCZ", val, p => callback(null, p));
+  ready("B15NOtCZ", val, function(p) {
+    p.on("ended", function() {
+      console.log("hello")
+      Reveal.down();
+    });
+    callback(null, p);
+  });
 }, function(err, players) {
   //called when all players are initialized
   Reveal.addEventListener("slidechanged", function(event) {
@@ -73,13 +78,6 @@ async.mapValues(players, function(val, key, callback) {
     }
   });
 })
-
-// players.forEach(function(p) {
-//   p.on("ended", function() {
-//     console.log("hello")
-//     Reveal.down();
-//   });
-// })
 
 var freeze = function(player) {
   var config = Reveal.getConfig();
