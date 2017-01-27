@@ -59,7 +59,7 @@ var players = {
 }
 
 async.mapValues(players, function(val, key, callback) {
-  ready("S1WwgeWn0", val, function(p) {
+  ready("BJvNJNM1g", val, function(p) {
     p.on("ended", function() {
       console.log("hello")
       Reveal.down();
@@ -108,37 +108,3 @@ var freeze = function(player) {
     clickAdvance = true;
   }, 15000);
 };
-
-ready("Nk8AFQkhe", "ad-player-1", function(player) {
-  var hasBeenPlayed = false;
-  Reveal.addEventListener("slidechanged", function(event) {
-    if (event.indexv == 18) {
-      player.play();
-      player.ima3.adPlayer.play();
-      if (!hasBeenPlayed) freeze("1");
-      hasBeenPlayed = true;
-    } else {
-      player.ima3.adPlayer.pause();
-    }
-  });
-  player.on("ads-ad-ended", function() {
-    Reveal.down();
-  });
-});
-
-ready("Nk8AFQkhe", "ad-player-2", function(player) {
-  var hasBeenPlayed = false;
-  Reveal.addEventListener("slidechanged", function(event) {
-    if (event.indexv == 40) {
-      player.play();
-      player.ima3.adPlayer.play();
-      if (!hasBeenPlayed) freeze("2");
-      hasBeenPlayed = true;
-    } else {
-      player.ima3.adPlayer.pause();
-    }
-  });
-  player.on("ads-ad-ended", function() {
-    Reveal.down();
-  });
-});
